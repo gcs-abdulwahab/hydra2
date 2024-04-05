@@ -1,28 +1,12 @@
 import {json, useLoaderData} from '@remix-run/react';
+import {type LoaderFunctionArgs} from '@shopify/remix-oxygen';
 
-interface IStat {
-  title: string;
-  value: string;
-}
-
+import type {IStat} from '~/data/Stats';
+import {stats} from '~/data/Stats';
 //  write loader
-export const loader = async () => {
-  const stats: IStat[] = [
-    {
-      title: 'Total Subscriber',
-      value: '71897',
-    },
-    {
-      title: 'Average Open Rate',
-      value: '71%',
-    },
-    {
-      title: 'Average Click Rate',
-      value: '25.4%',
-    },
-  ];
+export function loader({request}: LoaderFunctionArgs) {
   return json(stats);
-};
+}
 const Stats = () => {
   const stats = useLoaderData<typeof loader>();
 
