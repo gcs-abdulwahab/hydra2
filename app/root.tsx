@@ -19,7 +19,10 @@ import {
 } from '@remix-run/react';
 import favicon from './assets/favicon.svg';
 import resetStyles from './styles/reset.css';
+import tailwind from 'tailwindcss/tailwind.css';
 import appStyles from './styles/app.css';
+// apply tailwindcss styles
+
 import {Layout} from '~/components/Layout';
 
 /**
@@ -47,6 +50,7 @@ export function links() {
   return [
     {rel: 'stylesheet', href: resetStyles},
     {rel: 'stylesheet', href: appStyles},
+    {rel: 'stylesheet', href: tailwind},
     {
       rel: 'preconnect',
       href: 'https://cdn.shopify.com',
@@ -54,6 +58,10 @@ export function links() {
     {
       rel: 'preconnect',
       href: 'https://shop.app',
+    },
+    {
+      rel: 'preconnect',
+      href: 'https://cdn.shopify.com',
     },
     {rel: 'icon', type: 'image/svg+xml', href: favicon},
   ];
